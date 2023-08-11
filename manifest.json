@@ -1,0 +1,10 @@
+{
+  "name": "ExcludeMe",
+  "description": "This extension is made for people whiling to exclude themselves from the avaibled categories",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "permissions": ["cookies", "contentSettings", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
