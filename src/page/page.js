@@ -9,9 +9,13 @@ document.head.innerHTML = "";
 document.body.appendChild(element);
 let link =
   document.querySelector("link[rel*='icon']") || document.createElement("link");
-link.type = "image/x-icon";
-link.rel = "shortcut icon";
-link.href = "";
-let title = document.createElement("title");
-title.innerText = "Excluded!";
+link.setAttribute("rel", "shortcut icon");
+link.setAttribute(
+  "href",
+  "https://github.com/ExcludeMe/extension/blob/main/src/Icons/32.png"
+);
+document.title = "Excluded!";
 document.head.appendChild(link);
+for (let i = 0; i < document.head.getElementsByTagName("link").length; i++) {
+  document.head.removeChild(document.head.getElementsByTagName("link")[i]);
+}
