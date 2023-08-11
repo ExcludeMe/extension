@@ -10,7 +10,7 @@
   z-index: 999;
 }
 .exclude-background svg {
-  background-color: red;
+  color: rgb(245, 119, 1);
   width: 200px;
   height: 200px;
   margin: auto;
