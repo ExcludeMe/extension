@@ -32,7 +32,7 @@ body {
   text-decoration: underline rgb(245, 119, 1);
 }
 .main label {
-  margin: auto;
+  margin: 10px auto;
 }
 
 /* Spec */
@@ -55,4 +55,42 @@ body {
   font-size: 15px;
   font-family: "Rubik";
   margin: 0 30px;
+}
+.spec-list {
+  width: 350px;
+  margin: 10px 25px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.spec-list::-webkit-scrollbar {
+  background-color: transparent;
+}
+.spec-list::-webkit-scrollbar-thumb {
+  background-color: rgb(245, 119, 1);
+  width: 4px;
+  border-radius: 2px;
+}
+.spec-item {
+  width: 300px;
+  min-height: 60px;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  background-color: rgb(114, 114, 114);
+  border-radius: 20px;
+}
+.spec-item-title {
+  position: relative;
+  height: 100%;
+  font-size: 20px;
+  width: calc(300px - 6em);
+  font-family: "Rubik";
+  margin: auto;
+}
+.spec-item-checkbox-box {
+  position: relative;
+  margin: auto 20px auto -10px;
 }

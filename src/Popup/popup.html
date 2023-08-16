@@ -9,10 +9,41 @@
     <link rel="stylesheet" href="locks.css" />
   </head>
   <body>
-    <label class="rocker rocker-small">
-      <input type="checkbox" />
-      <span class="switch-left">Yes</span>
-      <span class="switch-right">No</span>
-    </label>
+    <div class="main" id="main">
+      <div class="main-title">Exclude me from everything</div>
+      <div id="all" class="checkbox-wrapper-8">
+        <input type="checkbox" id="exme-all" class="tgl tgl-skewed" />
+        <label
+          for="exme-all"
+          data-tg-on="Yes"
+          data-tg-off="No"
+          class="tgl-btn"
+        ></label>
+      </div>
+    </div>
+    <div class="specifications">
+      <div class="spec-title">Specifications</div>
+      <div class="spec-details">Exclude me from...</div>
+      <div class="spec-list" id="spec-list">
+        <div class="spec-item">
+          <div class="spec-item-title">Porn</div>
+          <div class="spec-item-checkbox-box">
+            <div class="checkbox-wrapper-8">
+              <input
+                type="checkbox"
+                id="exme-pornPack"
+                class="tgl tgl-skewed"
+              />
+              <label
+                for="exme-pornPack"
+                data-tg-on="Yes"
+                data-tg-off="No"
+                class="tgl-btn"
+              ></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
