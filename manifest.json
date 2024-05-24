@@ -7,9 +7,8 @@
   "author": "LeonTM",
   "content_scripts": [
     {
-      "js": ["src/page/page.js"],
-      "css": ["src/page/page.css"],
-      "matches": ["https://*/*"]
+      "js": ["dist/js/index.js"],
+      "matches": ["https://*/*", "http://*/*"]
     }
   ],
   "incognito": "spanning",
