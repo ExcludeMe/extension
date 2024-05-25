@@ -1,29 +1,38 @@
 "use strict";
 window.onload = () => {
-  let exclude = false;
-  fetch("https://leontm.me/api/projects/excludeMe/collection/getAll", {
-    method: "GET",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.processable) {
-        let packs = data.responseData;
-        packs.forEach((pack) => {
-          let websites = pack.websites;
-          websites.forEach((website) => {
-            if (
-              window.location.origin.includes(website) ||
-              (website.includes(".") && window.location.href.includes(website))
-            ) {
-              exclude = true;
+    let exclude = false;
+    const packIds = JSON.parse(localStorage.getItem("excludeMe")).packs;
+    packIds.forEach((packId) => {
+        fetch("https://leontm.me/api/projects/excludeMe/get/id=" + packId, {
+            method: "GET",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+            if (data.processable) {
+                const pack = data.responseData;
+                console.log("Received pack: " + pack.name);
+                pack.websites.forEach((website) => {
+                    if ((website.includes(".") &&
+                        document.location.host.includes(website)) ||
+                        (website.includes("/") &&
+                            document.location.href.includes(website))) {
+                        console.log("Excluding this website due to '" +
+                            website +
+                            "' in pack '" +
+                            pack.name +
+                            "'");
+                        return (exclude = true);
+                    }
+                });
             }
-          });
+        })
+            .catch((err) => {
+            console.error(err);
         });
-      }
     });
-  if (exclude) {
-    console.log("Redirecting to leontm.me");
-    window.location.href = `https://leontm.me/projects/excludeMe/excluded=${document.location.href}`;
-  }
+    if (exclude) {
+        console.log("Redirecting to leontm.me");
+        window.location.href = `https://leontm.me/projects/excludeMe/excluded=${document.location.href}`;
+    }
 };
 //# sourceMappingURL=index.js.map
