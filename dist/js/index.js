@@ -2,6 +2,10 @@
 window.onload = () => {
     let exclude = false;
     const packIds = JSON.parse(localStorage.getItem("excludeMe")).packs;
+    if (packIds.length === 0) {
+        console.log("No packs to exclude this website");
+        return;
+    }
     packIds.forEach((packId) => {
         fetch("https://leontm.me/api/projects/excludeMe/get/id=" + packId, {
             method: "GET",
