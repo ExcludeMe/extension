@@ -1,7 +1,8 @@
 window.onload = () => {
   let exclude: boolean = false;
-  const packIds = JSON.parse(<string>localStorage.getItem("excludeMe")).packs;
-  if (packIds.length === 0) {
+  let packIds = JSON.parse(<string>localStorage.getItem("excludeMe"));
+  packIds = packIds ? packIds.packs : false;
+  if (!packIds || packIds.length === 0) {
     console.log("No packs to exclude this website");
     return;
   }
