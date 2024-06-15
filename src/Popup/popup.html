@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="popup.css" />
     <script src="popup.js"></script>
     <link rel="stylesheet" href="locks.css" />
+    <link rel="stylesheet" href="smallSwitch.css" />
   </head>
   <body>
+    <div class="loader" id="loader">
+      <div class="leap-frog">
+        <div class="leap-frog__dot"></div>
+        <div class="leap-frog__dot"></div>
+        <div class="leap-frog__dot"></div>
+      </div>
+    </div>
+    <div class="title">ExcludeMe</div>
     <div class="main" id="main">
       <div class="main-title">Exclude me from everything</div>
       <div id="all" class="checkbox-wrapper-8">
@@ -28,19 +37,12 @@
         <div class="spec-item">
           <div class="spec-item-title">Porn</div>
           <div class="spec-item-checkbox-box">
-            <div class="checkbox-wrapper-8">
-              <input
-                type="checkbox"
-                id="exme-pornPack"
-                class="tgl tgl-skewed"
-              />
-              <label
-                for="exme-pornPack"
-                data-tg-on="Yes"
-                data-tg-off="No"
-                class="tgl-btn"
-              ></label>
-            </div>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider">
+                <span class="circle"></span>
+              </span>
+            </label>
           </div>
         </div>
       </div>
