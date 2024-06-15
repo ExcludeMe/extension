@@ -19,3 +19,33 @@ async function addSpec(title, id) {
   spec.appendChild(checkbox);
   document.getElementById("spec-list").appendChild(spec);
 }
+
+window.onload = async () => {
+  let packs = localStorage.getItem("excludeMe");
+  if (packs === null) {
+    return localStorage.setItem("excludeMe", JSON.stringify({}));
+  }
+
+  packs = JSON.parse(packs);
+  if (!packs) return;
+
+  packs = packs.packs;
+
+  if (!packs) return;
+
+  for (let i = 0; i < packs.length; i++) {
+    await fetch("https://leontm.me/api/projects/excludeMe/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.processable) {
+          addSpec(data.data.title, data.data._id);
+        }
+      });
+  }
+  document.getElementById("loader").style.display = "none";
+};
