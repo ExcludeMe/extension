@@ -15,6 +15,13 @@ body {
   flex-direction: column;
   max-height: 800px;
 }
+.title {
+  font-size: 40px;
+  font-family: "Rubik";
+  color: rgb(245, 119, 1);
+  text-align: center;
+  margin: 20px 0;
+}
 
 /* Main */
 
